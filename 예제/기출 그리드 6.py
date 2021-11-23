@@ -1,22 +1,54 @@
+# import heapq
+#
+# def solution(food_times,k):
+#     if sum(food_times) <=k:
+#         return -1
+#
+#     q=[]
+#     for i in range(len(food_times)):
+#         heapq.heappush(q,(food_times[i],i+1))
+#
+#     sum_value = 0
+#     previous = 0
+#     length = len(food_times)
+#
+#     while sum_value +  (q[0][0] - previous * length) <=k:
+#         now = heapq.heappop(q)[0]
+#         sum_value += (now - previous) *length
+#         length -=1
+#         previous = now
+#
+#     result = sorted(q,key= lambda x: x[1])
+#     return result[(k-sum_value) % length]
+
+#2
 import heapq
-
-def solution(food_times,k):
-    if sum(food_times) <=k:
+food_times = [3, 1, 2]
+k = 5
+def solution(food_times, k):
+    if sum(food_times) < k:
         return -1
-
-    q=[]
+    food = []
     for i in range(len(food_times)):
-        heapq.heappush(q,(food_times[i],i+1))
+        heapq.heappush(food,(food_times[i],i+1))
 
-    sum_value = 0
-    previous = 0
-    length = len(food_times)
+    print(food)
+    # print(heapq.heappop(food))
+    # print(heapq.heappop(food))
+    # print(heapq.heappop(food))
 
-    while sum_value +  (q[0][0] - previous * length) <=k:
-        now = heapq.heappop(q)[0]
-        sum_value += (now - previous) *length
-        length -=1
-        previous = now
+    time = 0
+    print(food[0][0])
+    heapq.heappop(food)[0]
+    print(food)
+    print(food[0][0])
 
-    result = sorted(q,key= lambda x: x[1])
-    return result[(k-sum_value) % length]
+
+
+
+
+
+    return 3
+
+
+print(solution(food_times,k))
